@@ -3,18 +3,21 @@ package com.app.fizzbuzz;
 import static java.util.stream.Collectors.joining;
 
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.IntStream;
 
 public class FizzBuzz {
     private static final String fizzBuzz = "FizzBuzz";
     private static final String fizz = "Fizz";
     private static final String buzz = "Buzz";
+    private static final Function<Integer,Integer> divisibleByThree = x -> x % 3;
+    private static final Function<Integer,Integer> divisibleByFive = x -> x % 5;
 
     public static String fizzBuzz(Integer number) {
         return Optional.of(number).map(n -> {
-            if ((n % 3 == 0 || containsDigit(n,3)) && (n % 5 == 0 || containsDigit(n,5))) return fizzBuzz;
-            else if ((n % 3 == 0) || containsDigit(n,3)) return fizz;
-            else if ((n % 5 == 0) || containsDigit(n,5)) return buzz;
+            if ((divisibleByThree.apply(n) == 0|| containsDigit(n,3)) && (divisibleByFive.apply(n) == 0 || containsDigit(n,5))) return fizzBuzz;
+            else if (divisibleByThree.apply(n) == 0 || containsDigit(n,3)) return fizz;
+            else if ((divisibleByFive.apply(n) == 0) || containsDigit(n,5)) return buzz;
             else return n.toString();
         }).get();
     }
