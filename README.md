@@ -17,8 +17,8 @@ Running the program over a range from 1 - 100  one should get the following outp
 ```
 
 ## Stage - 2 
-* A number is `Fizz` if it is divisible by `3` and contains `3`, overriding any existing behaviour
-* A number is `Buzz` if it is divisible by `5` and contains `5`, overriding any existing behaviour
+* A number is `Fizz` if it is divisible by `3` or contains `3`, overriding any existing behaviour
+* A number is `Buzz` if it is divisible by `5` or contains `5`, overriding any existing behaviour
 * A number is `FizBuzz` if it satisfy above 2 criterias together, overriding any existing behaviour
 
 ### Example Stage - 2
